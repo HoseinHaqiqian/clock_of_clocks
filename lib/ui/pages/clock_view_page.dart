@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:clock_of_clocks/ui/paint/clock_view.dart';
+import 'package:clock_of_clocks/ui/paint/number_view.dart';
 import 'package:clock_of_clocks/common/extension.dart';
 
 class ClockViewPage extends StatefulWidget {
@@ -32,40 +32,40 @@ class _ClockViewPageState extends State<ClockViewPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                for (var value in dateTime.hour.splitter()) _buildNumber(value),
-                _buildDivider(),
-                for (var value in dateTime.minute.splitter())
-                  _buildNumber(value),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                for (var value in dateTime.second.splitter())
-                  _buildNumber(value),
-                // _buildNumber(dateTime.second)
-              ],
-            ),
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              for (var value in dateTime.hour.splitter())
+                _buildNumber(value),
+              _buildDivider(),
+              for (var value in dateTime.minute.splitter())
+                _buildNumber(value),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              for (var value in dateTime.second.splitter())
+                _buildNumber(value),
+              // _buildNumber(dateTime.second)
+            ],
+          ),
+        ],
       ),
     );
   }
 
   Widget _buildNumber(int number) {
-    return ClockView(
+    return NumberView(
       clocks: number.getValue(),
     );
   }
 
   _buildDivider() {
-    return ClockView(
+    return NumberView(
       clocks: (-1).getValue(),
     );
   }
