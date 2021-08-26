@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.untitled">
+    package="hosein.haqiqian.clocks_of_clock">
    <application
-        android:label="untitled"
+        android:label="Clocks of clock"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
