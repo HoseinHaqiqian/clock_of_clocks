@@ -27,14 +27,16 @@ class NumberView extends StatelessWidget {
   _buildNumber(BuildContext context, TinyClock tinyClock) {
     return TweenAnimationBuilder<TinyClock?>(
       tween: ClockTween(begin: null, end: tinyClock),
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 500),
+
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width/30,
+        height: MediaQuery.of(context).size.width/30,
+      ),
       builder: (context, value, child) {
         return  CustomPaint(
           painter: ClockViewPainter(tinyClock: value!),
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width/30,
-            height: MediaQuery.of(context).size.width/30,
-          ),
+          child: child,
         );
       },
     );

@@ -8,8 +8,8 @@ class ClockTween extends Tween<TinyClock?> {
   @override
   TinyClock? lerp(double t) {
     return TinyClock(
-      hour: (begin!.hour + (end!.hour - begin!.hour) * t).toInt(),
-      minutes: (begin!.minutes + (end!.minutes - begin!.minutes) * t).toInt(),
+      hour: (begin!.hour + (end!.hour - begin!.hour) * t),
+      minutes: (begin!.minutes + (end!.minutes - begin!.minutes) * t),
     );
   }
 }

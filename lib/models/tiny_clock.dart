@@ -9,15 +9,14 @@ class TinyClock {
   static final TinyClock bottomLeft = TinyClock(hour: 6, minutes: 9);
   static final TinyClock bottomRight = TinyClock(hour: 6, minutes: 3);
 
-  int hour;
-  int minutes;
+  double hour;
+  double minutes;
 
   TinyClock({required this.hour, required this.minutes});
 
   @override
   TinyClock operator *(other) {
-    return TinyClock(
-        hour: (hour * other).toInt(), minutes: (minutes * other).toInt());
+    return TinyClock(hour: (hour * other), minutes: (minutes * other));
   }
 
   bool equal(TinyClock tinyClock) {
