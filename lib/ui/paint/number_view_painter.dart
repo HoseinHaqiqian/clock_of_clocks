@@ -9,16 +9,17 @@ class ClockViewPainter extends CustomPainter {
   ClockViewPainter({required this.tinyClock});
 
   final mPaint = Paint()
-    ..color = Colors.black12
     ..style = PaintingStyle.stroke
     ..isAntiAlias = true
+    ..color = Colors.black.withOpacity(0.2)
+    ..maskFilter = MaskFilter.blur(BlurStyle.inner, 0.2)
     ..strokeWidth = 0.5;
 
   final handlePaint = Paint()
-    ..color = Colors.black54
+    ..color = Colors.black
     ..isAntiAlias = true
     ..strokeCap = StrokeCap.round
-    ..strokeWidth = 2;
+    ..strokeWidth = 1.5;
 
   late Offset circleOffset;
   late double radius;
